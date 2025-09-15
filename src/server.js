@@ -31,12 +31,19 @@ const START_SERVER = () => {
 	// Middleware xử lý lỗi tập trung
 	app.use(errorHandlingMiddleware)
 
-	const port = env.PORT
-	app.listen(port, () => {
-		console.log(
-			`Hello Truong Nguyen, I'm running server at http://localhost:${port}`
-		)
-	})
+	if (env.BUILD_MODE === "production") {
+		app.listen(process.env.PORT, () => {
+			console.log(
+				`Hello Truong Nguyen, I'm running server at PORT: ${process.env.PORT}`
+			)
+		})
+	} else {
+		app.listen(env.LOCAL_PORT, () => {
+			console.log(
+				`Hello Truong Nguyen, I'm running server at http://localhost:${env.LOCAL_PORT}`
+			)
+		})
+	}
 }
 
 // Chỉ khi kết nối DB thành công thì mới start server

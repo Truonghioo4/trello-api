@@ -1,21 +1,19 @@
-require("dotenv").config();
+require("dotenv").config()
 
 const env = {
 	MONGODB_URL: process.env.MONGODB_URL,
 	DB_NAME: process.env.DB_NAME,
-	PORT: process.env.PORT,
+	LOCAL_PORT: process.env.LOCAL_PORT,
 	BUILD_MODE: process.env.BUILD_MODE,
 
-	
 	ACCESS_TOKEN_SECRET_SIGNATURE: process.env.ACCESS_TOKEN_SECRET_SIGNATURE,
 	ACCESS_TOKEN_LIFE: process.env.ACCESS_TOKEN_LIFE,
 	REFRESH_TOKEN_SECRET_SIGNATURE: process.env.REFRESH_TOKEN_SECRET_SIGNATURE,
 	REFRESH_TOKEN_LIFE: process.env.REFRESH_TOKEN_LIFE,
 
 	CLOUDINARY_CLOUD_NAME: process.env.CLOUDINARY_CLOUD_NAME,
-	CLOUDINARY_API_KEY: process.env.CLOUDINARY_API_KEY, 
-	CLOUDINARY_API_SECRET:process.env.CLOUDINARY_API_SECRET
+	CLOUDINARY_API_KEY: process.env.CLOUDINARY_API_KEY,
+	CLOUDINARY_API_SECRET: process.env.CLOUDINARY_API_SECRET
+}
 
-};
-
-module.exports = env;
+module.exports = env
