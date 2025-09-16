@@ -33,10 +33,15 @@ var START_SERVER = function START_SERVER() {
 
   // Middleware xử lý lỗi tập trung
   app.use(errorHandlingMiddleware);
-  var port = env.PORT;
-  app.listen(port, function () {
-    console.log("Hello Truong Nguyen, I'm running server at http://localhost:".concat(port));
-  });
+  if (env.BUILD_MODE === "production") {
+    app.listen(process.env.PORT, function () {
+      console.log("Hello Truong Nguyen, I'm running server at PORT: ".concat(process.env.PORT));
+    });
+  } else {
+    app.listen(env.LOCAL_PORT, function () {
+      console.log("Hello Truong Nguyen, I'm running server at http://localhost:".concat(env.LOCAL_PORT));
+    });
+  }
 };
 
 // Chỉ khi kết nối DB thành công thì mới start server
