@@ -7,7 +7,7 @@ const ApiError = require("~/utils/ApiError")
 const corsOptions = {
 	origin: function (origin, callback) {
 		// Nếu môi trường là local dev -> cho qua luôn
-		if (!origin) {
+		if (env.BUILD_MODE === "dev") {
 			return callback(null, true)
 		}
 		// Kiểm tra dem origin có phải là domain được chấp nhận hay không
