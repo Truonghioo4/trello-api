@@ -1,0 +1,14 @@
+name: Render keep-alive ping
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'  # Runs every 10 minutes UTC
+  workflow_dispatch:  # Allows manual triggering
+
+jobs:
+  curl-website:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run cURL on Website
+        run: curl -I https://trello-api-4837.onrender.com
